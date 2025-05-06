@@ -1,0 +1,120 @@
+/* Menu Icon Style */
+.menu-icon {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 2.5rem;
+  color: #0c0200; /* Tomato color for pizza */
+  cursor: pointer;
+  transition: transform 0.6s ease;
+  z-index: 1001;
+}
+
+.menu-icon.rotate {
+  transform: rotate(360deg) scale(1.2); /* 360 degrees + scale up */
+}
+
+/* Side Menu */
+/* Base Side Menu */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff6b6b, #f06595, #ff9f1c);
+  padding: 2rem 1rem;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  box-shadow: 4px 0px 15px rgba(0,0,0,0.2);
+  z-index: 999;
+}
+
+/* When menu is open */
+.side-menu.open {
+  transform: translateX(0);
+}
+
+/* Menu Items */
+.menu-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Animated Menu Item */
+.menu-item {
+  display: block;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(-30px);
+  opacity: 0;
+  animation: fadeSlideIn 0.6s forwards;
+}
+
+/* Hover Effect */
+.menu-item:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateX(10px) scale(1.05);
+}
+
+/* Keyframes */
+@keyframes fadeSlideIn {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeSlideOut {
+  from {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+}
+
+/* Different delays for each item */
+.menu-items li:nth-child(1) .menu-item {
+  animation-delay: 0.2s;
+}
+.menu-items li:nth-child(2) .menu-item {
+  animation-delay: 0.4s;
+}
+.menu-items li:nth-child(3) .menu-item {
+  animation-delay: 0.6s;
+}
+.menu-items li:nth-child(4) .menu-item {
+  animation-delay: 0.8s;
+}
+
+/* When closing, reverse animation */
+.side-menu.closing .menu-item {
+  animation: fadeSlideOut 0.6s forwards;
+}
+
+/* Pizza Icon Animation */
+.menu-icon {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+  z-index: 1000;
+}
+
+.menu-icon.rotate {
+  transform: rotate(360deg);
+}
